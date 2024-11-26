@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\jobsOffer;
-use App\Models\User;
-use App\Models\Job;
+use App\Models\Offer;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Database\Factories\jobsOfferFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,9 +20,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 */
-        //jobsOffer::factory(10)->create();
+        //Offer::factory(10)->create();
 
-        jobsOfferFactory::factory()->create([
+        Offer::factory()->create([
             'enterprise' => 'Test Enterprise',
             'position' =>  'Test Position',
             'state' => false,
