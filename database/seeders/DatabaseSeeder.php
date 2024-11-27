@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 */
         //Offer::factory(10)->create();
 
-        Offer::factory()->create([
+        Offer::factory(10)->create([
             'enterprise' => 'Test Enterprise',
             'position' =>  'Test Position',
             'state' => false,
