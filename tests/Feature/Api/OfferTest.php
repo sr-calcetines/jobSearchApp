@@ -18,6 +18,18 @@ class OfferTest extends TestCase
        
         $response->assertStatus(200)
                  ->assertJsonCount(2);
+    }
+
+    public function test_CheckIfCanDeleteEntryInOfferWithApi(){
+       
+        $offer = Offer::factory(2)->create();
+
+        $response = $this->delete(route('apidestroy', 1));
+
+        $this->assertDatabaseCount('offers', 1);
+
+        $response = $this->get(route('apihome'));
+        $response->assertJsonCount(1);
 
     }
 }
