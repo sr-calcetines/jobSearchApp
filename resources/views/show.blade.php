@@ -11,21 +11,17 @@
                     <th scope="col">Enterprise</th>
                     <th scope="col">Position</th>
                     <th scope="col">State</th>
-                    <th scope="col">Show</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($offers as $offer)
                     <tr>
-                        <td>{{ $offer->id}}</td>
-                        <td>{{ $offer->created_at->format('d/m/y')}}</td>
-                        <td>{{ $offer->updated_at->format('d/m/y')}}</td>
-                        <td>{{ $offer->enterprise}}</td>
-                        <td>{{ $offer->position}}</td>
-                        <td>{{ $offer->state}}</td>
-                        <td><a href="/show/{{$offer->id}}">✏️</a></td>
+                        <td>{{ $offers->id}}</td>
+                        <td>{{ $offers->created_at->format('d/m/y')}}</td>
+                        <td>{{ $offers->updated_at->format('d/m/y')}}</td>
+                        <td>{{ $offers->enterprise}}</td>
+                        <td>{{ $offers->position}}</td>
+                        <td>{{ $offers->state}}</td>
                     </tr>
-                @endforeach
             <tbody>
         </table>
     </div>
