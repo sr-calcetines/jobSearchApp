@@ -32,4 +32,58 @@ class OfferTest extends TestCase
         $response->assertJsonCount(1);
 
     }
+
+    public function test_CheckIfCanCreateNewEntryInOfferWithJsonFile()
+    {
+        $response = $this->post(route('apistore'), [
+            'enterprise' => 'Hello enterprise',
+            'position' => 'Hello position',
+            'state' => true
+        ]);
+
+        $response = $this->get(route('apihome'));
+        $response->assertStatus(200)
+                ->assertJsonCount(1);
+    }
+
+    public function test_CheckIfCanUpdateEntryInJournalWithJsonFile()
+    {
+        $response = $this->post(route('apistore'), [
+            'enterprise' => 'Hello enterprise',
+            'position' => 'Hello position',
+            'state' => true
+        ]);
+
+        $data = ['enterprise' => 'Hello enterprise'];
+        $response = $this->get(route('apihome'));
+        $response->assertStatus(200)
+                ->assertJsonCount(1)
+                ->assertJsonFragment($data);
+
+        $response = $this->put('/api/offers/1', [
+            'enterprise' => 'Hello easter',
+            'position' => 'Hello egg',
+            'state' => false
+        ]);
+
+        $data = ['enterprise' => 'Hello easter'];
+        $response = $this->get(route('apihome'));
+        $response->assertStatus(200)
+                ->assertJsonCount(1)
+                ->assertJsonFragment($data);
+    }
+
+    public function test_CheckIfFunctionShowWorks(){
+        $response = $this->post(route('apistore'), [
+            'enterprise' => 'Hello easter',
+            'position' => 'Hello egg',
+            'state' => false
+        ]);
+        $data = ['enterprise' => 'Hello easter', 'position' => 'Hello egg', 'state' => 0];
+        $response = $this->get(route('apishow', 1));
+        $response->assertStatus(200)
+                ->assertJsonCount(6)
+                ->assertJsonFragment($data);
+    }
 }
+
