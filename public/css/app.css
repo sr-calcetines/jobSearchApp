@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #97a8ba !important; /* Fondo armonioso */
+    background-color: #97a8ba !important; 
   }
   
   .container {
@@ -16,5 +16,27 @@
     text-align: center;
   }
 
- 
-  
+  .backBtnContainer {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100px; 
+    width: 100%; 
+}
+
+.backBtn {
+    font-size: 24px; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    background-color: #f5f5f5; 
+    color: #333; 
+    border: 2px solid #ccc; 
+    border-radius: 8px; 
+    transition: all 0.3s ease; 
+}
+
+.backBtn:hover {
+    background-color: #e0e0e0; 
+    color: #000; 
+    border-color: #999; 
+}
