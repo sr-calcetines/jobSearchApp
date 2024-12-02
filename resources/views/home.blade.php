@@ -23,7 +23,13 @@
                         <td>{{ $offer->updated_at->format('d/m/y')}}</td>
                         <td>{{ $offer->enterprise}}</td>
                         <td>{{ $offer->position}}</td>
-                        <td>{{ $offer->state}}</td>
+                        <td> 
+                            @if ($offer->state===1)
+                            <span class="active">In progress</span>
+                            @else
+                            <span class="inactive">Finished</span>
+                            @endif
+                        </td>
                         <td><a href="/show/{{$offer->id}}">✏️</a></td>
                         <td>
                             @forelse ($offer->follows as $follow)
