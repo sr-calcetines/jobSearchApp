@@ -9,12 +9,13 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Created at</th>
-                    <th scope="col">Updated at</th>
-                    <th scope="col">Enterprise</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">State</th>
+                    <th>ID</th>
+                    <th></th>Created at</th>
+                    <th>Updated at</th>
+                    <th>Enterprise</th>
+                    <th>Position</th>
+                    <th>State</th>
+                    <th>News</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,7 +25,20 @@
                         <td>{{ $offers->updated_at->format('d/m/y')}}</td>
                         <td>{{ $offers->enterprise}}</td>
                         <td>{{ $offers->position}}</td>
-                        <td>{{ $offers->state}}</td>
+                        <td> 
+                            @if ($offers->state===1)
+                            <span class="active">In progress</span>
+                            @else
+                            <span class="inactive">Finished</span>
+                            @endif
+                        </td>
+                        <td>
+                            @forelse ($offers->follows as $follow)
+                                <li>{{ $follow-> news}}</li>
+                            @empty
+                                <li>⚠️ No tracking yet ⚠️</li>
+                            @endforelse
+                        </td>
                     </tr>
             <tbody>
         </table>

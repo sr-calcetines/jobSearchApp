@@ -1,6 +1,7 @@
 @import url(footer.css);
 @import url(table.css);
 @import url(backBtn.css);
+@import url(form.css);
 
  body {
     font-family: Arial, sans-serif;
@@ -24,3 +25,4 @@
  .inactive{
   color:red;
  }
+

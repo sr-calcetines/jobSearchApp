@@ -22,3 +22,7 @@
     color: #000; 
     border-color: #999; 
 }
+
+.crudBtn{
+    text-decoration: none;
+}
