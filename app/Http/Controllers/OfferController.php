@@ -12,7 +12,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        $offers = Offer::get();
+        $offers = Offer::with('follows')->get();
 
         return view('home', compact('offers'));
     }
