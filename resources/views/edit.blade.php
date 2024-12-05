@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
+    <div class="backBtnContainer">
+        <a href="{{ route('home') }}" class="backBtn">🔙</a>
+    </div>
+
     <div class="tableOffer">
         <h2 class="form-title">Edit Offer</h2>
         <form action="{{ route('update', $offer->id) }}" method="POST" class="form-container">
