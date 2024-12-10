@@ -4,6 +4,7 @@ namespace Tests\Feature\Api;
 
 use Tests\TestCase;
 use App\Models\Offer;
+use App\Models\Follow;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FollowTest extends TestCase
@@ -49,5 +50,69 @@ class FollowTest extends TestCase
         $response->assertStatus(404);
 
         $response->assertJsonFragment(['message' => 'Offer not found']);
+    }
+
+    public function test_IndexMethodWorksShowingAllElements()
+    {   
+        Offer::factory(10)->create();
+        Follow::factory(1)->create([
+            'news' => 'Test news',
+            'offer_id' => 1,
+        ]);
+
+        $response = $this->get('/api/offers/1/follows');
+
+        $response->assertStatus(200)->assertJsonCount(1);
+    }
+
+
+
+    public function test_IndexMethodWorksShowingOneElementById()
+    {   
+        Offer::factory(10)->create();
+        Follow::factory(1)->create([
+            'news' => 'Test news',
+            'offer_id' => 1,
+        ]);
+
+        $response = $this->get('/api/offers/1/follows/1');
+
+        $response->assertStatus(200)->assertJsonFragment(['offer_id' => 1]);
+    }
+
+
+    public function test_IfDeleteMethodEraseElementCorrectly()
+    {   
+        Offer::factory(10)->create();
+        Follow::factory(1)->create([
+            'news' => 'Test news',
+            'offer_id' => 1,
+        ]);
+        
+        $response = $this->delete('/api/offers/1/follows/1');
+        $this->assertDatabaseCount('follows', 0);
+    }
+
+    public function test_IfUpdateMethodWorksCorrectly()
+    {   
+        Offer::factory(10)->create();
+        Follow::factory(1)->create([
+            'news' => 'Test news',
+            'offer_id' => 1,
+        ]);
+        
+        $response = $this->put('/api/offers/1/follows/1', 
+        [
+            'news' => 'Test news',
+            'offer_id' => 1,
+        ]);
+
+        $response = $this->get('/api/offers/1/follows/1');
+
+        $response->assertStatus(200)->assertJsonFragment([
+
+            'news' => 'Test news',
+            'offer_id' => 1,
+        ]);
     }
 }
