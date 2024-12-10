@@ -53,7 +53,7 @@ This project is about a website to store and organize the different job offers. 
 `php artisan key:generate` `php artisan config:cache` 
 
 ## 🌐 Endpoints 
-We have generated six endpoints, four for each CRUD function, one extra for the show button and another to add news to each offer.
+We have generated six endpoints, four for each CRUD function, two extra for the show button and another pack of four endpoints for the news table .
 
 ### ✏️ Create Offer (POST)
 `http://127.0.0.1:8000/api/offers`
