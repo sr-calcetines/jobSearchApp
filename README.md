@@ -55,23 +55,37 @@ This project is about a website to store and organize the different job offers. 
 ## 🌐 Endpoints 
 We have generated six endpoints, four for each CRUD function, one extra for the show button and another to add news to each offer.
 
-### ✏️ Create (POST)
+### ✏️ Create Offer (POST)
 `http://127.0.0.1:8000/api/offers`
 
-### 📖 Read (GET)
+### 📖 Read Offer (GET)
 `http://127.0.0.1:8000/api/offers`
 
-### ✏️✏️ Update (PUT)
+### ✏️✏️ Update Offer (PUT)
 `http://127.0.0.1:8000/api/offers/id`
 
-### ❌ Destroy (DELETE)
+### ❌ Destroy Offer (DELETE)
 `http://127.0.0.1:8000/api/offers/id`
 
-### 👁️ Show (GET)
+### 👁️ Show Offer (GET)
 `http://127.0.0.1:8000/api/offers/id`
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### ✏️ Create News (POST)
 `http://127.0.0.1:8000/api/offers/id/follows`
+
+### 📖 Read News (GET)
+`http://127.0.0.1:8000/api/offers/id/follows`
+
+### ✏️✏️ Update News (PUT)
+`http://127.0.0.1:8000/api/offers/id/follows/id`
+
+### ❌ Destroy News (DELETE)
+`http://127.0.0.1:8000/api/offers/id/follows/id`
+
+### 👁️ Show News (GET)
+`http://127.0.0.1:8000/api/offers/id/follows/id`
 
 ## 🧪 Tests 
 All tests passed. Introduce this line on your console to check it:
@@ -79,7 +93,7 @@ All tests passed. Introduce this line on your console to check it:
 `./vendor/bin/phpunit tests`
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/41ee81e8-89fe-4d94-830f-2a6febaa0576" alt="PHP test" width="500"/>
+  <img src="https://github.com/user-attachments/assets/9a87c279-4177-46ac-97d8-32574587a201" alt="PHP test" width="500"/>
 </p>
 
 If you want to launch the tests and view them you can put these commands in console 3:
@@ -87,11 +101,11 @@ If you want to launch the tests and view them you can put these commands in cons
 `php artisan test --coverage` `php artisan test --coverage-html=coverage-report`
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/955f08ce-8f8e-4fbb-96d6-2670ae71fab9" alt="PHP test coverage" width="500"/>
+  <img src="https://github.com/user-attachments/assets/19b4a0f5-95bb-4d9f-9531-372f6a65c310" alt="PHP test coverage" width="500"/>
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4e773074-6c43-45e3-8777-75d517baa5b7" alt="Descripción de la imagen" width="500"/>
+  <img src="https://github.com/user-attachments/assets/bb1b11f0-f569-4392-82d9-ad8e2cd867f2" alt="Descripción de la imagen" width="500"/>
 </p>
 
 ## 🗂️ Diagram made (DDBB) 
